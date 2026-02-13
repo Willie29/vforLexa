@@ -12,7 +12,7 @@ const scanningInterval = setInterval(() => {
   statusText.textContent = "Scanning Face" + ".".repeat(dots);
 }, 500);
 
-// Setelah 3 detik → face confirmed
+// Setelah 7 detik → face confirmed
 setTimeout(() => {
   clearInterval(scanningInterval);
 
@@ -35,9 +35,8 @@ setTimeout(() => {
 
 }, 7000);
 
-// Tombol lanjut (sementara)
 continueBtn.addEventListener("click", () => {
-  window.location.reload();
+  // window.location.reload();
   // alert("Lanjut ke halaman berikutnya 💗");
-  // nanti: window.location.href = "page2.html";
+  window.location.href = "./second/page2.html";
 });
