@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #7a1f3d, #ff8fb1);
+  color: white;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+/* CARD CONTAINER */
+.cards {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* FLIP CARD BASE */
+.flip-card {
+  background: transparent;
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding: 20px; */
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.flip-front {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+}
+
+.flip-back {
+  background: white;
+  color: #7a1f3d;
+  transform: rotateY(180deg);
+}
+
+.flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Initial hidden animation state */
+.animate-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* When shown */
+.animate-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* NEXT BUTTON */
+#nextBtn {
+  margin-top: 40px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  background: white;
+  color: #7a1f3d;
+  transition: transform 0.3s ease;
+}
+
+#nextBtn:hover {
+  transform: scale(1.1);
+}
+
+/* LETTER SECTION */
+.letter {
+  gap: 60px;
+}
+
+.letter-card {
+  width: 600px;
+  height: 350px;
+}
+
+.big-front {
+  font-size: 20px;
+  flex-direction: column;
+}
+
+.big-front span {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.big-back {
+  flex-direction: column;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.gift-card {
+  width: 300px;
+  height: 180px;
+}
+
+.gift-card .flip-front {
+  background: linear-gradient(135deg, #ff8fb1, #7a1f3d);
+  color: white;
+  font-weight: 600;
+}
+
+.gift-card .flip-back {
+  background: white;
+  color: #7a1f3d;
+  font-weight: 600;
+}
+
+
+/* UTIL */
+.hidden {
+  display: none;
+}
